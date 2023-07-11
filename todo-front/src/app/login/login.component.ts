@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
 
   handleLogin(){
     if(this.username === 'dkey' && this.password === 'dkey'){
-      this.router.navigate(['/welcome'])
+      this.router.navigate(['/welcome', this.username])
       this.isInvalidLogin = false
     }else{
       this.isInvalidLogin = true
