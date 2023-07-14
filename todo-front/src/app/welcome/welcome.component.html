@@ -3,3 +3,15 @@
   <h1>welcome {{name}}! Welcome to our awesome App.</h1>
   <p>You can manage your todo <a routerLink="/todos">here</a> </p>
 </div>
+
+<div class="container">
+  <p *ngIf="message">{{message}}</p>
+  Click here to get message from server
+  <button (click)="getWelcomeMessage()" class="btn btn-success">Get Welcome Message</button>
+</div>
+
+
+<div class="container" *ngIf="messageFromServer">
+  <h2>Message from server</h2>
+  {{messageFromServer}}
+</div>
