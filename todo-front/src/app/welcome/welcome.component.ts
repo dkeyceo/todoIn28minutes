@@ -25,6 +25,9 @@ export class WelcomeComponent implements OnInit {
       data => {
         // this.message = data['message'];
         this.handleSuccessfulResponse(data);
+      },
+      err=> {
+        console.log(err.error.message);
       }
     );
   }
@@ -32,4 +35,16 @@ export class WelcomeComponent implements OnInit {
   handleSuccessfulResponse(response){
     this.messageFromServer = response.message;
   }
+
+  getWelcomeMessageWithPathVariable(){
+    this.welcomeService.executeHelloWorldBeanServiceWithPathVariable(this.name).subscribe(
+      data => {
+        this.handleSuccessfulResponse(data);
+      },
+      err=> {
+        console.log(err.error.message);
+      }
+    );
+  }
+
 }
