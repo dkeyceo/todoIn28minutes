@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TodoService } from '../services/data/todo.service';
 
 export class Todo {
@@ -36,7 +37,8 @@ export class ListTodosComponent implements OnInit {
 */
 
 
-  constructor(private todoService: TodoService) { }
+  constructor(private todoService: TodoService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.getAllTodos()
@@ -53,5 +55,15 @@ export class ListTodosComponent implements OnInit {
       this.message = 'Deleted todo with id ' + id;
       this.getAllTodos();
     });
+  }
+
+  updateTodo(id){
+    this.router.navigate(['/todos',id]);
+    /*
+    this.todoService.deleteTodo('dkey', id).subscribe(() => {
+      this.message = 'Deleted todo with id ' + id;
+      this.getAllTodos();
+    });
+    */
   }
 }

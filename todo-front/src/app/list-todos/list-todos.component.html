@@ -8,7 +8,8 @@
       <th>desc</th>
       <th>Target Date</th>
       <th>Is compleated?</th>
-      <th>Actions</th>
+      <th>Update</th>
+      <th>Delete</th>
     </tr>
   </thead>
   <tbody>
@@ -17,7 +18,12 @@
       <td>{{t.description}}</td>
       <td>{{t.targetDate | date}}</td>
       <td>{{t.done}}</td>
-      <td><button (click)="deleteTodo(t.id)" class="btn btn-warning">Delete Todo</button></td>
+      <td>
+        <button (click)="updateTodo(t.id)" class="btn btn-secondary">Update Todo</button>
+        </td>
+        <td>
+          <button (click)="deleteTodo(t.id)" class="btn btn-warning">Delete Todo</button>
+      </td>
     </tr>
   </tbody>
 </table>
