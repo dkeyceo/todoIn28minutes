@@ -27,6 +27,7 @@ export class ListTodosComponent implements OnInit {
    new Todo(3, 'Earn 1 billion $' , false, new Date()),
     */
   ];
+  message: string
 /*
   todo = {
     id: 1,
@@ -34,12 +35,23 @@ export class ListTodosComponent implements OnInit {
   };
 */
 
+
   constructor(private todoService: TodoService) { }
 
   ngOnInit(): void {
+    this.getAllTodos()
+  }
+
+  getAllTodos(){
     this.todoService.getAllTodos('dkey').subscribe(data => {
       this.todos = data;
     })
   }
 
+  deleteTodo(id){
+    this.todoService.deleteTodo('dkey', id).subscribe(() => {
+      this.message = 'Deleted todo with id ' + id;
+      this.getAllTodos();
+    });
+  }
 }
