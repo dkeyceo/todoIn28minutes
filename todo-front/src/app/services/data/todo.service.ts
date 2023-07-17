@@ -18,6 +18,10 @@ export class TodoService {
     return this.http.get<Todo>(`http://localhost:8080/users/${username}/todos/${id}`);
   }
 
+  createTodo(username, todo){
+    return this.http.post(`http://localhost:8080/users/${username}/todos`, todo);
+  }
+
   updateTodo(username, id, todo){
     return this.http.put(`http://localhost:8080/users/${username}/todos/${id}`, todo);
   }
