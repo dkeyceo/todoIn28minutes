@@ -15,33 +15,35 @@ export class WelcomeDataService {
 
   constructor(private http: HttpClient) { }
 
-  createBasicAuthHttpHeader() {
-    let username = 'dkey';
-    let password = 'dkey';
-    let basicAuthHeaderString = 'Basic '+ btoa(username + ':' + password);
-    return basicAuthHeaderString;
-  }
+  // createBasicAuthHttpHeader() {
+  //   let username = 'dkey';
+  //   let password = 'dkey';
+  //   let basicAuthHeaderString = 'Basic '+ btoa(username + ':' + password);
+  //   return basicAuthHeaderString;
+  // }
 
-  getBasicHeaders(){
-    return new HttpHeaders({
-      Authorization: this.createBasicAuthHttpHeader()
-    });
-  }
+  // getBasicHeaders(){
+  //   return new HttpHeaders({
+  //     Authorization: this.createBasicAuthHttpHeader()
+  //   });
+  // }
 
   executeHelloWorldBeanService(){
-    let basicAuthHeaderString = this.createBasicAuthHttpHeader();
-    let headers = new HttpHeaders({
-      Authorization: basicAuthHeaderString
-    });
+    // let basicAuthHeaderString = this.createBasicAuthHttpHeader();
+    // let headers = new HttpHeaders({
+    //   Authorization: basicAuthHeaderString
+    // });
 
-    return this.http.get<HelloWorldBean>(this.url, {headers});
+    return this.http.get<HelloWorldBean>(this.url,
+       //{headers}
+       );
 
     // console.log('Executed Hello world Bean service');
   }
 
   executeHelloWorldBeanServiceWithPathVariable(name){
     return this.http.get<HelloWorldBean>(`${this.urlPath}/${name}`, {
-      headers: this.getBasicHeaders()
+      //headers: this.getBasicHeaders()
     });
   }
 }
