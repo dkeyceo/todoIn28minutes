@@ -1,4 +1,4 @@
-package com.dkey.todo.config.security;
+package com.dkey.todo.config.security.basic;
 
 public class AuthenticationBean {
 	

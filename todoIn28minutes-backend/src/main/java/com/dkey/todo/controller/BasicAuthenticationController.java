@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dkey.todo.config.security.AuthenticationBean;
+import com.dkey.todo.config.security.basic.AuthenticationBean;
 import com.dkey.todo.dto.HelloWorldBean;
 
 @RestController

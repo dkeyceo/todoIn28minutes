@@ -1,4 +1,4 @@
-package com.dkey.todo.config.security;
+package com.dkey.todo.config.security.basic;
 
 import javax.annotation.security.PermitAll;
 
@@ -8,8 +8,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
-@Configuration
-@EnableWebSecurity
+//@Configuration
+//@EnableWebSecurity
 public class BasicAuthConfigurer extends WebSecurityConfigurerAdapter {
 
 	@Override
