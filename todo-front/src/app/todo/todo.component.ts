@@ -22,22 +22,26 @@ export class TodoComponent implements OnInit {
     this.todo = new Todo(this.id, '', false, new Date());
 
     if(this.id != -1) {
-    this.todoService.getTodo('dkey', this.id)
+    this.todoService.getTodo(this.getAuthenticatedUser(), this.id)
         .subscribe(data => this.todo = data);
     }
   }
 
-  saveTodo(){
-    if(this.id === -1){
+  getAuthenticatedUser(){
+    return sessionStorage.getItem('authenticaterUser');
+  }
 
-      this.todoService.createTodo('dkey', this.todo)
+  saveTodo(){
+    if(this.id == -1){
+
+      this.todoService.createTodo(this.getAuthenticatedUser(), this.todo)
         .subscribe(
           data => {
             this.router.navigate(['todos']);
           });
 
     }else {
-    this.todoService.updateTodo('dkey', this.id, this.todo)
+    this.todoService.updateTodo(this.getAuthenticatedUser(), this.id, this.todo)
         .subscribe(
           data => {
             this.router.navigate(['todos']);

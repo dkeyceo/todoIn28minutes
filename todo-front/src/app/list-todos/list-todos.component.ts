@@ -29,6 +29,7 @@ export class ListTodosComponent implements OnInit {
     */
   ];
   message: string
+  username: string
 /*
   todo = {
     id: 1,
@@ -44,14 +45,18 @@ export class ListTodosComponent implements OnInit {
     this.getAllTodos()
   }
 
+  getAuthenticatedUser(){
+    return sessionStorage.getItem('authenticaterUser');
+  }
   getAllTodos(){
-    this.todoService.getAllTodos('dkey').subscribe(data => {
+
+    this.todoService.getAllTodos(this.getAuthenticatedUser()).subscribe(data => {
       this.todos = data;
     })
   }
 
   deleteTodo(id){
-    this.todoService.deleteTodo('dkey', id).subscribe(() => {
+    this.todoService.deleteTodo(this.getAuthenticatedUser(), id).subscribe(() => {
       this.message = 'Deleted todo with id ' + id;
       this.getAllTodos();
     });
